@@ -1,18 +1,17 @@
 # ⚖️ LegalAI — AI-Powered Lawyer Consultation Platform
 
 ## 📌 Project Title
-
-**LegalAI — Smart AI + Blockchain Powered Legal Consultation Platform**
+LegalAI — Smart AI + Blockchain Powered Legal Consultation Platform
 
 ---
 
 ## 📝 Project Description
 
-LegalAI is a production-ready LegalTech platform that enables users to upload legal documents, receive AI-powered clause analysis with risk assessment, and securely connect with verified lawyers for consultation.
+LegalAI is a full-stack LegalTech platform that combines Artificial Intelligence and Blockchain technology to simplify legal document understanding and lawyer consultation.
 
-The platform integrates Artificial Intelligence (OCR + NLP) with Algorand Blockchain smart contracts to provide secure, transparent, and tamper-proof document verification.
+Users can upload legal documents (PDFs or images), receive AI-powered clause analysis with risk scoring, and securely connect with verified lawyers for consultations. To ensure transparency and document integrity, the system stores document hashes on the Algorand Testnet using smart contracts.
 
-It simplifies complex legal language, improves accessibility to legal services, and enhances trust through blockchain-backed verification.
+LegalAI bridges the gap between complex legal language and everyday users while maintaining security, transparency, and trust.
 
 ---
 
@@ -20,16 +19,16 @@ It simplifies complex legal language, improves accessibility to legal services, 
 
 Legal documents are often:
 
-- Difficult to understand due to complex legal language  
-- Risky to sign without proper review  
-- Expensive to get reviewed by professionals  
+- Complex and filled with difficult legal terminology  
+- Risky to sign without expert review  
+- Expensive to get analyzed by professionals  
 - Hard to verify for authenticity  
 
 Additionally:
 
-- There is no transparent system for document integrity verification.
-- Legal consultations lack secure digital tracking.
-- Users struggle to find verified and specialized lawyers easily.
+- There is no transparent way to verify document integrity digitally.
+- Many users struggle to find trusted and specialized lawyers.
+- Legal consultations lack structured digital tracking.
 
 ---
 
@@ -37,11 +36,14 @@ Additionally:
 
 LegalAI provides:
 
-- AI-powered document clause analysis  
-- Automated risk scoring and recommendations  
+- AI-powered clause detection and explanation  
+- Automated risk assessment scoring  
+- Recommendation engine for safer decision-making  
 - Verified lawyer marketplace  
-- Secure blockchain-based document hash storage (Algorand Testnet)  
-- Smart appointment booking system  
+- Blockchain-based document hash verification  
+- Secure appointment booking and tracking  
+
+By combining AI + Algorand Blockchain, the platform ensures intelligent analysis and tamper-proof verification.
 
 ---
 
@@ -72,70 +74,238 @@ https://testnet.algoexplorer.io/application/123456789
 
 ### System Architecture
 
-Frontend (React + Vite)
-        │
-        ▼
-Node.js Backend (Express API)
-        │
-        ├── MongoDB (Users, Lawyers, Appointments)
-        │
-        ├── Python AI Service (FastAPI)
-        │       ├── OCR Processing
-        │       └── NLP Clause Analysis
-        │
-        └── Algorand Smart Contract
-                └── Stores Document Hash
+Frontend (React + Vite)  
+        │  
+        ▼  
+Node.js Backend (Express API)  
+        │  
+        ├── MongoDB Database  
+        │       ├── Users  
+        │       ├── Lawyers  
+        │       ├── Appointments  
+        │       └── Documents  
+        │  
+        ├── Python AI Service (FastAPI)  
+        │       ├── OCR Processing (Tesseract)  
+        │       └── NLP Clause Analysis (spaCy)  
+        │  
+        └── Algorand Smart Contract  
+                └── Stores SHA-256 Document Hash  
 
 ---
 
-## 🔐 Smart Contract + Frontend Interaction
+## 🔐 Smart Contract + Frontend Interaction Flow
 
-1. User uploads a document.
-2. Backend extracts text using OCR.
-3. NLP engine analyzes clauses and assigns risk scores.
-4. A SHA-256 hash of the document is generated.
-5. The hash is stored on Algorand Testnet via smart contract.
-6. Frontend displays:
-   - AI analysis
-   - Risk score
-   - Blockchain verification status
-7. Users can verify document authenticity anytime using the Testnet explorer.
+1. User uploads a legal document.  
+2. Backend sends file to AI service.  
+3. OCR extracts text from PDF/image.  
+4. NLP analyzes clauses and assigns risk score.  
+5. Backend generates SHA-256 hash of the document.  
+6. Hash is stored on Algorand Testnet smart contract.  
+7. Smart contract returns transaction confirmation.  
+8. Frontend displays:
+   - AI analysis report  
+   - Risk score  
+   - Blockchain verification status  
+9. User can verify document anytime using Testnet explorer.  
 
 ---
 
 ## 🧰 Tech Stack
 
-### Blockchain
-- AlgoKit
-- Smart Contract Language: PyTEAL
-- Algorand Testnet
-- AlgoExplorer
+### 🔗 Blockchain
+- AlgoKit  
+- PyTEAL / Beaker / TEALScript  
+- Algorand Testnet  
+- AlgoExplorer  
 
-### Backend
-- Node.js
-- Express.js
-- MongoDB
-- JWT Authentication
-- bcrypt
+### 🖥 Backend
+- Node.js  
+- Express.js  
+- MongoDB  
+- Mongoose  
+- JWT Authentication  
+- bcrypt  
 
-### AI Service
-- Python
-- FastAPI
-- Tesseract OCR
-- spaCy NLP
+### 🤖 AI Service
+- Python  
+- FastAPI  
+- Tesseract OCR  
+- spaCy NLP  
 
-### Frontend
-- React (Vite)
-- Tailwind CSS
-- Framer Motion
-- Axios
+### 🎨 Frontend
+- React (Vite)  
+- Tailwind CSS  
+- Framer Motion  
+- Axios  
 
 ---
 
-## ⚙️ Installation & Setup
+## ⚙️ Installation & Setup Instructions
 
-### 1️⃣ Clone Repository
+### 1️⃣ Clone the Repository
 
 ```bash
 git clone <repository-url>
 cd LegalAI
+```
+
+---
+
+### 2️⃣ Backend Setup
+
+```bash
+cd server
+npm install
+```
+
+Create a `.env` file inside the server directory:
+
+```env
+PORT=5000
+MONGODB_URI=mongodb://localhost:27017/legalconsult
+JWT_SECRET=your_secret_key
+JWT_EXPIRE=7d
+AI_SERVICE_URL=http://localhost:8000
+ALGORAND_APP_ID=123456789
+```
+
+Run the backend:
+
+```bash
+npm run dev
+```
+
+---
+
+### 3️⃣ Frontend Setup
+
+```bash
+cd client
+npm install
+npm run dev
+```
+
+Frontend runs on:
+http://localhost:5173
+
+---
+
+### 4️⃣ AI Service Setup
+
+```bash
+cd ai-service
+pip install -r requirements.txt
+python -m spacy download en_core_web_sm
+python main.py
+```
+
+AI service runs on:
+http://localhost:8000
+
+---
+
+### 5️⃣ Smart Contract Deployment (Algorand Testnet)
+
+Install AlgoKit and deploy:
+
+```bash
+algokit init
+algokit deploy
+```
+
+After deployment:
+- Copy generated App ID  
+- Update ALGORAND_APP_ID in backend `.env`  
+- Restart backend  
+
+---
+
+## 📖 Usage Guide
+
+### 👤 User Workflow
+
+1. Register or Login  
+2. Upload legal document (PDF/Image)  
+3. System performs:
+   - OCR extraction  
+   - NLP clause analysis  
+   - Risk scoring  
+4. Document hash stored on blockchain  
+5. View analysis dashboard  
+6. Browse verified lawyers  
+7. Book consultation  
+8. Track appointment status  
+
+---
+
+## 📸 Screenshots
+
+Create a folder named `screenshots` in root directory.
+
+Add:
+- dashboard.png  
+- upload.png  
+- analysis.png  
+- lawyer-profile.png  
+- blockchain-verification.png  
+
+Example:
+
+```markdown
+![Dashboard](screenshots/dashboard.png)
+![Upload](screenshots/upload.png)
+![Analysis](screenshots/analysis.png)
+![Lawyer Profile](screenshots/lawyer-profile.png)
+![Blockchain Verification](screenshots/blockchain-verification.png)
+```
+
+---
+
+## ⚠️ Known Limitations
+
+- AI analysis does not replace licensed legal advice  
+- Currently supports English language only  
+- OCR accuracy depends on document clarity  
+- Only document hash stored on blockchain (not full file)  
+- No mobile application version yet  
+- Testnet only (not deployed to Mainnet)  
+
+---
+
+## 👥 Team Members and Roles
+
+### Prem Sagar Malhotra
+- Full Stack Developer  
+- Database & Blockchain Integration  
+- AI Integration  
+
+### Sehajpreet Singh
+- Frontend Developer  
+- Smart Contract Developer 
+
+### Sahibjit Singh
+- Backend Developer  
+
+### Sukha Singh
+-UI UX Integration   
+
+
+## 🔮 Future Improvements
+
+- Multilingual NLP support  
+- AI legal chatbot assistant  
+- Video consultation integration  
+- Wallet-based authentication  
+- Mainnet deployment  
+- Mobile application  
+
+---
+
+## 📜 License
+
+This project is licensed under the ISC License.
+
+---
+
+Built with ❤️ using AI + Algorand Blockchain
