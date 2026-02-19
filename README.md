@@ -115,7 +115,7 @@ Node.js Backend (Express API)
 
 ### 🔗 Blockchain
 - AlgoKit  
-- PyTEAL / Beaker / TEALScript  
+- PyTEAL
 - Algorand Testnet  
 - AlgoExplorer  
 
