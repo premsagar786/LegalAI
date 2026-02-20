@@ -1,0 +1,10 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: 1.8.1
+_src_path: gh:algorandfoundation/algokit-python-template
+author_email: sagarprem2006@gmail.com
+author_name: premsagar786
+contract_name: hello_worldapp
+deployment_language: python
+preset_name: production
+project_name: my_algorand_
+
