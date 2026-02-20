@@ -50,10 +50,7 @@ By combining AI + Algorand Blockchain, the platform ensures intelligent analysis
 ## 🌐 Live Demo
 
 Live Application URL:  
-https://your-live-demo-link.com
-
----
-
+https://legalai-client.vercel.app/
 ## 🎥 LinkedIn Demo Video
 
 LinkedIn Demo Video URL:  
