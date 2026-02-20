@@ -57,9 +57,7 @@ https://your-live-demo-link.com
 ## 🎥 LinkedIn Demo Video
 
 LinkedIn Demo Video URL:  
-https://linkedin.com/your-demo-video-link
-
----
+https://www.linkedin.com/posts/sahibjit_legaltech-ai-blockchain-activity-7430409659804626944-Q1k6?utm_source=share&utm_medium=member_android&rcm=ACoAAF0AN-cBMK_lY42wQeNnz1Dm2o_QpKfx4bg
 
 ## ⛓ Blockchain Details
 
@@ -236,29 +234,6 @@ After deployment:
 6. Browse verified lawyers  
 7. Book consultation  
 8. Track appointment status  
-
----
-
-## 📸 Screenshots
-
-Create a folder named `screenshots` in root directory.
-
-Add:
-- dashboard.png  
-- upload.png  
-- analysis.png  
-- lawyer-profile.png  
-- blockchain-verification.png  
-
-Example:
-
-```markdown
-![Dashboard](screenshots/dashboard.png)
-![Upload](screenshots/upload.png)
-![Analysis](screenshots/analysis.png)
-![Lawyer Profile](screenshots/lawyer-profile.png)
-![Blockchain Verification](screenshots/blockchain-verification.png)
-```
 
 ---
 
